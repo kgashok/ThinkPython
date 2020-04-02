@@ -18,7 +18,7 @@ class Location(object):
         """Computes the distance from this location to other."""
         dx = self.x - other.x
         dy = self.y - other.y
-        return math.sqrt(dx*dx + dy*dy)
+        return math.sqrt(dx * dx + dy * dy)
 
     def isLeft(self, other): return self.x < other.x
     def isRight(self, other): return self.x > other.x
@@ -37,7 +37,7 @@ class Circle(Shape):
 
     def contains(self, loc):
         """Returns True if Location loc is inside this circle
-        (including the boundary)."""       
+        (including the boundary)."""
         return loc.distance(self.center) <= self.radius
 
 
@@ -49,10 +49,14 @@ class Rectangle(Shape):
     def contains(self, loc):
         """return True if Location loc is inside this rectangle
         (including the boundary)"""
-        if loc.isLeft(self.topLeft): return False
-        if loc.isRight(self.botRight): return False
-        if loc.isAbove(self.topLeft): return False
-        if loc.isBelow(self.botRight): return False
+        if loc.isLeft(self.topLeft):
+            return False
+        if loc.isRight(self.botRight):
+            return False
+        if loc.isAbove(self.topLeft):
+            return False
+        if loc.isBelow(self.botRight):
+            return False
         return True
 
 
@@ -60,5 +64,5 @@ center = Location(100, 200)
 circle = Circle(center, 75)
 loc = Location(150, 150)
 
-bool = circle.contains(loc) 
+bool = circle.contains(loc)
 print bool

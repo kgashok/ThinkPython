@@ -12,6 +12,7 @@ Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
 
 """
 
+
 def structshape(ds):
     """Returns a string that describes the shape of a data structure.
 
@@ -37,7 +38,7 @@ def structshape(ds):
         for k, v in ds.items():
             keys.add(structshape(k))
             vals.add(structshape(v))
-        rep = '%s of %d %s->%s' % (typename, len(ds), 
+        rep = '%s of %d %s->%s' % (typename, len(ds),
                                    setrep(keys), setrep(vals))
         return rep
 
@@ -82,7 +83,7 @@ def setrep(s):
         return rep
     else:
         return '(' + rep + ')'
-    return 
+    return
 
 
 def append(res, typestr, count):
@@ -105,10 +106,10 @@ def append(res, typestr, count):
 
 if __name__ == '__main__':
 
-    t = [1,2,3]
+    t = [1, 2, 3]
     print structshape(t)
 
-    t2 = [[1,2], [3,4], [5,6]]
+    t2 = [[1, 2], [3, 4], [5, 6]]
     print structshape(t2)
 
     t3 = [1, 2, 3, 4.0, '5', '6', [7], [8], 9]
@@ -126,7 +127,7 @@ if __name__ == '__main__':
     lt = zip(t, s)
     print structshape(lt)
 
-    d = dict(lt)        
+    d = dict(lt)
     print structshape(d)
 
     it = iter('abc')

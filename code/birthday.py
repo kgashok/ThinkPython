@@ -9,13 +9,13 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 import random
 
+
 def has_duplicates(t):
     """Returns True if any element appears more than once in (t),
     False otherwise."""
-    s = t[:]
-    s.sort()
-    for i in range(len(s)-1):
-        if s[i] == s[i+1]:
+    s = sorted(t[:])
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
             return True
     return False
 
@@ -38,6 +38,7 @@ def count_matches(students, samples):
         if has_duplicates(t):
             count += 1
     return count
+
 
 """run the birthday simulation 1000 times and print the number of matches"""
 num_students = 23

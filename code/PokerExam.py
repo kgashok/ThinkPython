@@ -28,14 +28,14 @@ class Table(Gui.Gui):
     def setup(self):
         self.ca_width = 100
         self.ca_height = 100
-        
+
         # left frame
         self.row()
         self.canvas = self.ca(width=self.ca_width, height=self.ca_height,
                               bg='dark green', transforms=[])
 
         # right frame
-        self.col([1,1,1])
+        self.col([1, 1, 1])
         self.bu('Quit', command=self.quit)
         self.bu('Deal', command=self.deal_hand)
         self.bu('Print', command=self.canvas.dump)
@@ -48,7 +48,7 @@ class Table(Gui.Gui):
         width = self.cardset.width
         height = self.cardset.height
         self.canvas.add_transform(TableTransform(width, height))
-        self.canvas.configure(width=width*numcards, height=height*numhands)
+        self.canvas.configure(width=width * numcards, height=height * numhands)
 
     def deal_hand(self, numcards=7):
         """Deal one hand and create a HandView."""
@@ -57,7 +57,7 @@ class Table(Gui.Gui):
         deck = PokerHand.Deck()
         deck.shuffle()
 
-        # deal the cards 
+        # deal the cards
         hand = PokerHand.PokerHand()
         deck.move_cards(hand, numcards)
 
@@ -82,7 +82,7 @@ class TableTransform(Gui.Transform):
     def __init__(self, width, height):
         self.width = width
         self.height = height
-    
+
     def trans(self, p):
         x = p[0] * self.width
         y = p[1] * self.height
@@ -103,17 +103,17 @@ class Cardset(dict):
 
     def read_cards(self, dir, ext='gif'):
         suits = 'cdhs'
-        for rank in range(1,14):
+        for rank in range(1, 14):
             for suit in range(4):
                 filename = '%s/%.2d%s.%s' % (dir, rank, suits[suit], ext)
                 image = ImageTk.PhotoImage(file=filename)
-                self[suit,rank] = image
+                self[suit, rank] = image
 
         filename = '%s/back01.gif' % (dir)
         try:
             image = ImageTk.PhotoImage(file=filename)
             self['back'] = image
-        except:
+        except BaseException:
             pass
 
         # cardset keeps track of the width and height of the cards
@@ -124,9 +124,10 @@ class Cardset(dict):
         """lookup the given card and return the Image that depicts it"""
         return self[card.suit, card.rank]
 
+
 class HandView:
     """A HandView object represents a Hand being displayed on a Table"""
-    
+
     def __init__(self, hand, table):
         self.hand = hand
         self.table = table
@@ -160,13 +161,14 @@ class HandView:
         """remove the graphical representation of this HandView"""
         self.table.canvas.delete(self.tag)
 
-    
+
 def main(name, cardstyle='tuxedo', *args):
     table = Table()
     cardset = Cardset('cardsets/cardset-' + cardstyle)
-    table.set_cardset(cardset)    
+    table.set_cardset(cardset)
     table.mainloop()
-    
+
+
 if __name__ == '__main__':
     import sys
     main(*sys.argv)

@@ -8,6 +8,7 @@ import sys
 
 from swampy.Gui import Gui
 
+
 class Popup(Gui):
     """Creates a top-level window with a message."""
 

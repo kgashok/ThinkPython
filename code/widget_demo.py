@@ -36,10 +36,12 @@ en.insert(END, 'This is an entry widget.')
 
 la2 = g.la(text='')
 
+
 def press_me():
     """this callback gets invoked when the user presses the button"""
     text = en.get()
     la2.configure(text=text)
+
 
 # bu is for button
 bu = g.bu(text='Press me', command=press_me)
@@ -62,15 +64,17 @@ item3 = ca.text([0, 0], 'This is a canvas.', 'white')
 # mb is for menubutton
 mb = g.mb(text='Choose a color')
 
+
 def set_color(color):
     ca.itemconfig(item2, fill=color)
+
 
 # mi is for menuitem
 for color in ['red', 'green', 'blue']:
 
     # Callable is an object that can be used like a function
     g.mi(mb, color, command=Callable(set_color, color))
-    
+
 g.endcol()
 
 
@@ -78,22 +82,26 @@ g.endcol()
 
 g.col()
 
+
 def get_selection():
     t = lb.curselection()
     try:
         index = int(t[0])
         color = lb.get(index)
         return color
-    except:
+    except BaseException:
         return None
+
 
 def print_selection(event):
     print get_selection()
+
 
 def apply_color():
     color = get_selection()
     if color:
         ca.itemconfig(item1, fill=color)
+
 
 la = g.la(text='List of colors:')
 
@@ -151,7 +159,7 @@ g.endcol()
 
 # gr is for grid: start a grid with three columns
 # the rweights control how extra space is divided among the rows
-g.gr(3, rweights=[1,1,1])
+g.gr(3, rweights=[1, 1, 1])
 
 for i in range(1, 10):
     g.bu(text=str(i))
@@ -163,8 +171,10 @@ g.endgr()
 
 g.col()
 
+
 def print_var(obj):
     print obj.var.get()
+
 
 g.la(text='Font:')
 fontsize = IntVar()

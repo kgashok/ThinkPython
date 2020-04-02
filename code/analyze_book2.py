@@ -41,4 +41,3 @@ if __name__ == '__main__':
     print "\n\nHere are some random words from the book"
     for i in range(100):
         print random_word(hist),
-

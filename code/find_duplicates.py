@@ -9,6 +9,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 import os
 
+
 def walk(dirname):
     """Finds the names of all files in dirname and its subdirectories.
 

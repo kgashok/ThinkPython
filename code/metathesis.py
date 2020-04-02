@@ -9,6 +9,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 from anagram_sets import *
 
+
 def metathesis_pairs(d):
     """Print all pairs of words that differ by swapping two letters.
 

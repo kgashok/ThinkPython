@@ -41,7 +41,7 @@ def days_until_birthday(birthday):
 
     # if it has gone by, when will it be next year
     if today > next_birthday:
-        next_birthday = datetime(today.year+1, birthday.month, birthday.day)
+        next_birthday = datetime(today.year + 1, birthday.month, birthday.day)
 
     # subtraction on datetime objects returns a timedelta object
     delta = next_birthday - today
@@ -111,13 +111,13 @@ def main():
     race_time = Time()
     race_time.hour = 1
     race_time.minute = 34
-    race_time.second = 05
+    race_time.second = 0o5
 
     print 'Half marathon time',
     print_time(race_time)
 
     distance = 13.1       # miles
-    pace = mul_time(race_time, 1/distance)
+    pace = mul_time(race_time, 1 / distance)
 
     print 'Time per mile',
     print_time(pace)

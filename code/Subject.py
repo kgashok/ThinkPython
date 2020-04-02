@@ -24,18 +24,18 @@ class Subject(RemoteObject):
     def notify_observers(self):
         """notify all registered observers when the state of
         the subject changes"""
-        
+
         for observer in copy(self.observers):
             try:
                 print 'Notifying', observer
                 ns = NameServer()
                 proxy = ns.get_proxy(observer)
                 proxy.notify()
-            except Exception, x:
+            except Exception as x:
                 # this clause should catch errors that occur
                 # in the Observer code.
                 print ''.join(Pyro.util.getPyroTraceback(x))
-            except:
+            except BaseException:
                 # this clause should catch Pyro NamingErrors,
                 # which occur when an observer dies.
                 print 'Removing ' + observer
@@ -59,7 +59,7 @@ class SimpleSubject(Subject):
         self.state = 0
 
     # the following methods are intended to be invoked remotely
-        
+
     def set_state(self, state):
         """Changes the state of the Subject."""
         print 'New state', state
@@ -70,6 +70,6 @@ class SimpleSubject(Subject):
         """Gets the current state of the Subject."""
         return self.state
 
+
 sub = SimpleSubject('simple_subject')
 sub.requestLoop()
-

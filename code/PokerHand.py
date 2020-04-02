@@ -23,7 +23,7 @@ class PokerHand(Hand):
 
     def has_flush(self):
         """Returns True if the hand has a flush, False otherwise.
-      
+
         Note that this works correctly for hands with more than 5 cards.
         """
         self.suit_hist()
@@ -46,4 +46,3 @@ if __name__ == '__main__':
         print hand
         print hand.has_flush()
         print ''
-

@@ -13,11 +13,14 @@ from lumpy_demo import *
 
 from swampy.Lumpy import Lumpy
 
+
 class Point(object):
     """Represents a point in 2-D space."""
 
+
 class Rectangle(object):
     """Represents a rectangle."""
+
 
 lumpy = Lumpy()
 lumpy.make_reference()
@@ -33,6 +36,3 @@ box2 = copy.copy(box)
 
 lumpy.object_diagram()
 print_diagram(lumpy, 'lumpydemo5.eps')
-
-
-

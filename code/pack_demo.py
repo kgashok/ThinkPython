@@ -11,6 +11,7 @@ Swampy; you can download it from thinkpython.com/swampy.
 
 from swampy.Gui import *
 
+
 def figure1():
     print 'Figure 17.3 a'
 
@@ -28,6 +29,7 @@ def figure2():
     b2.configure(text='Cancel Command')
 
     g.mainloop()
+
 
 def figure3():
     print 'Figure 17.3 c'
@@ -142,6 +144,7 @@ def figure10():
 
     g.mainloop()
 
+
 def figure11():
     print 'Figure 17.7 c'
 
@@ -155,12 +158,14 @@ def figure11():
 
     g.mainloop()
 
+
 def figure12():
     print 'Figure 17.7 d'
 
     pack(**options)
 
     g.mainloop()
+
 
 def figure13():
     print 'Figure 17.7 e'
@@ -170,7 +175,9 @@ def figure13():
 
     g.mainloop()
 
+
 def main():
     figure8()
+
 
 main()

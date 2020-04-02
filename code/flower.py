@@ -26,7 +26,7 @@ def petal(t, r, angle):
     """
     for i in range(2):
         arc(t, r, angle)
-        lt(t, 180-angle)
+        lt(t, 180 - angle)
 
 
 def flower(t, n, r, angle):
@@ -39,7 +39,7 @@ def flower(t, n, r, angle):
     """
     for i in range(n):
         petal(t, r, angle)
-        lt(t, 360.0/n)
+        lt(t, 360.0 / n)
 
 
 def move(t, length):

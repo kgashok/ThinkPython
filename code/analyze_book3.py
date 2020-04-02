@@ -34,7 +34,7 @@ def random_word(hist):
         freqs.append(total_freq)
 
     # choose a random value and find its location in the cumulative list
-    x = random.randint(0, total_freq-1)
+    x = random.randint(0, total_freq - 1)
     index = bisect(freqs, x)
     return words[index]
 
@@ -59,4 +59,3 @@ if __name__ == '__main__':
     print "\n\nHere are some random words from the book"
     for i in range(100):
         print random_word(hist),
-

@@ -8,6 +8,7 @@ import os
 import sys
 from subprocess import Popen
 
+
 def spawn_popup(message, sender):
     """Launches a Popup in a subprocess."""
     cmd = ['python', 'Popup.py', message, sender]
@@ -18,7 +19,7 @@ def spawn_popup(message, sender):
 def main(script):
     """Spawns three Popups."""
 
-    # if you don't get this reference, see 
+    # if you don't get this reference, see
     # http://www.ibras.dk/montypython/episode03.htm
 
     for innuendo in ['Nudge, nudge', 'Snap, snap.', 'Grin, grin.']:
@@ -27,4 +28,3 @@ def main(script):
 
 if __name__ == '__main__':
     main(*sys.argv)
-

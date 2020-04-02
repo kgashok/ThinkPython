@@ -9,6 +9,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 import os
 
+
 def walk(dirname):
     """Prints the names of all files in dirname and its subdirectories.
 
@@ -36,4 +37,3 @@ def walk2(dirname):
 if __name__ == '__main__':
     walk('.')
     walk2('.')
-    

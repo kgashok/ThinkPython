@@ -47,7 +47,7 @@ def polygon(t, n, length):
     n: number of sides
     length: length of each side.
     """
-    angle = 360.0/n
+    angle = 360.0 / n
     polyline(t, n, length, angle)
 
 
@@ -65,9 +65,9 @@ def arc(t, r, angle):
 
     # making a slight left turn before starting reduces
     # the error caused by the linear approximation of the arc
-    lt(t, step_angle/2)
+    lt(t, step_angle / 2)
     polyline(t, n, step_length, step_angle)
-    rt(t, step_angle/2)
+    rt(t, step_angle / 2)
 
 
 def circle(t, r):
@@ -84,7 +84,7 @@ def circle(t, r):
 # or being imported, in which case don't.
 
 if __name__ == '__main__':
-    world = TurtleWorld()    
+    world = TurtleWorld()
 
     bob = Turtle()
     bob.delay = 0.001

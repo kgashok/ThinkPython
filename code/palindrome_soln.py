@@ -7,6 +7,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 """
 
+
 def first(word):
     """Returns the first character of a string."""
     return word[0]
@@ -35,4 +36,3 @@ print is_palindrome('allen')
 print is_palindrome('bob')
 print is_palindrome('otto')
 print is_palindrome('redivider')
-

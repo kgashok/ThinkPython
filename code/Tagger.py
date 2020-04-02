@@ -53,7 +53,6 @@ class Tagger(Wobbler):
             self.apply_tag(target)
         except Missed:
             self.chase(target)
-        
 
     def turn_toward(self, x=0, y=0):
         """Turns to face the given point.
@@ -111,7 +110,7 @@ class Tagger(Wobbler):
         other: Turtle object
         """
         self.heading = self.away(other.x, other.y)
-        
+
     def chase(self, other):
         """Faces the other turtle.
 
@@ -125,7 +124,7 @@ class Tagger(Wobbler):
         others: list of Animals
         """
         t = [(self.distance_from(animal), animal)
-              for animal in others if animal is not self]
+             for animal in others if animal is not self]
         (distance, animal) = min(t)
         return animal
 

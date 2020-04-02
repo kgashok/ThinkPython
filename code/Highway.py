@@ -16,13 +16,14 @@ import color_list
 
 class Highway(TurtleWorld):
     """A circular Highway with one lane that spirals down the canvas.
-    
+
     Attributes:
 
     rows: the number of rows that spiral down the canvas.
     delay: time between steps in seconds
     colors: list of RGB strings
     """
+
     def __init__(self):
         TurtleWorld.__init__(self)
         self.rows = 2.0
@@ -59,7 +60,7 @@ class Highway(TurtleWorld):
     def step(self):
         """Performs one time step."""
         TurtleWorld.step(self)
-        
+
         # compute average turtle speed
         total = 0.0
         for turtle in self.animals:
@@ -86,8 +87,8 @@ class Highway(TurtleWorld):
         # refers to the driver in front
         t.sort()
         turtles = [t[1] for t in t]
-        for i in range(n-1):
-            turtles[i].next = turtles[i+1]
+        for i in range(n - 1):
+            turtles[i].next = turtles[i + 1]
         turtles[-1].next = turtles[0]
 
         return turtles
@@ -130,9 +131,9 @@ class Driver(Turtle):
 
     def step(self):
         """Checks the distance to the next driver, adjusts speed, and moves.
-        
+
         This function enforces the rules for all drivers.
-        
+
         Driver decision-making is in choose_acceleration().
         """
         dist = self.find_distance()
@@ -166,7 +167,7 @@ class Driver(Turtle):
         else:
             return 0.3
 
-    
+
 def make_highway(n, driver=Driver):
     """Make the highway and drivers, then run the simulation.
 

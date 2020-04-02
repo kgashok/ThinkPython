@@ -26,10 +26,10 @@ def draw_pie(t, n, r):
     """
     polypie(t, n, r)
     pu(t)
-    fd(t, r*2 + 10)
+    fd(t, r * 2 + 10)
     pd(t)
 
-    
+
 def polypie(t, n, r):
     """Draws a pie divided into radial segments.
 
@@ -39,7 +39,7 @@ def polypie(t, n, r):
     """
     angle = 360.0 / n
     for i in range(n):
-        isosceles(t, r, angle/2)
+        isosceles(t, r, angle / 2)
         lt(t, angle)
 
 
@@ -56,11 +56,11 @@ def isosceles(t, r, angle):
 
     rt(t, angle)
     fd(t, r)
-    lt(t, 90+angle)
-    fd(t, 2*y)
-    lt(t, 90+angle)
+    lt(t, 90 + angle)
+    fd(t, 2 * y)
+    lt(t, 90 + angle)
     fd(t, r)
-    lt(t, 180-angle)
+    lt(t, 180 - angle)
 
 
 # create the world and bob
@@ -83,4 +83,3 @@ die(bob)
 world.canvas.dump()
 
 wait_for_user()
-
