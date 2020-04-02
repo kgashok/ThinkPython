@@ -8,6 +8,7 @@ Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
 
 """
 
+
 class Point(object):
     """Represents a point in 2-D space."""
 
@@ -18,7 +19,7 @@ def print_point(p):
 
 
 class Rectangle(object):
-    """Represents a rectangle. 
+    """Represents a rectangle.
 
     attributes: width, height, corner.
     """
@@ -27,8 +28,8 @@ class Rectangle(object):
 def find_center(rect):
     """Returns a Point at the center of a Rectangle."""
     p = Point()
-    p.x = rect.corner.x + rect.width/2.0
-    p.y = rect.corner.y + rect.height/2.0
+    p.x = rect.corner.x + rect.width / 2.0
+    p.y = rect.corner.y + rect.height / 2.0
     return p
 
 
@@ -71,4 +72,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

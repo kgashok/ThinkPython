@@ -30,7 +30,7 @@ def sed(pattern, replace, source, dest):
 
         fin.close()
         fout.close()
-    except:
+    except BaseException:
         print 'Something went wrong.'
 
 

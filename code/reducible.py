@@ -7,6 +7,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 """
 
+
 def make_word_dict():
     """Reads the words in words.txt and returns a dictionary
     that contains the words as keys."""
@@ -36,13 +37,13 @@ def is_reducible(word, word_dict):
 
     Also adds an entry to the memo dictionary.
 
-    A string is reducible if it has at least one child that is 
+    A string is reducible if it has at least one child that is
     reducible.  The empty string is also reducible.
 
     word: string
     word_dict: dictionary with words as keys
     """
-     # if have already checked this word, return the answer
+    # if have already checked this word, return the answer
     if word in memo:
         return memo[word]
 
@@ -67,7 +68,7 @@ def children(word, word_dict):
     """
     res = []
     for i in range(len(word)):
-        child = word[:i] + word[i+1:]
+        child = word[:i] + word[i + 1:]
         if child in word_dict:
             res.append(child)
     return res

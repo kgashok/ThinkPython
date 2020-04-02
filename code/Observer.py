@@ -22,7 +22,7 @@ class Observer(RemoteObject):
         id = random.randint(0, 1000000)
         observer_name = subject_name + '_observer%d' % id
         RemoteObject.__init__(self, observer_name)
-        
+
         # register with the subject
         self.subject = subject_name
         ns = NameServer()
@@ -44,6 +44,6 @@ class Observer(RemoteObject):
         state = proxy.get_state()
         print 'Observer notified; new state =', state
 
+
 obs = Observer('simple_subject')
 obs.requestLoop()
-

@@ -12,11 +12,11 @@ To use this typewriter, you have to provide a module named letters.py
 that contains functions with names like draw_a, draw_b, etc.
 """
 
-from time import sleep
 
 try:
+from swampy.TurtleWorld import *
+from time import sleep
     # see if Swampy is installed as a package
-    from swampy.TurtleWorld import *
 except ImportError:
     # otherwise see if the modules are on the PYTHONPATH
     from TurtleWorld import *
@@ -24,10 +24,10 @@ except ImportError:
 # check if the reader has provided letters.py
 try:
     from letters import *
-except ImportError, e:
+except ImportError as e:
     message = e.args[0]
     if message.startswith('No module'):
-        raise ImportError(message + 
+        raise ImportError(message +
                           '\nYou have to provide a module named letters.py')
 
 
@@ -60,10 +60,10 @@ def keypress(event):
 
     # check if the user pressed return
     if event.char in ['\n', '\r']:
-        teleport(bob, -180, bob.y-size*3)
+        teleport(bob, -180, bob.y - size * 3)
         bob.busy = False
         return
-        
+
     # figure out which function to call, and call it
     try:
         func = eval('draw_' + event.char)
@@ -74,7 +74,7 @@ def keypress(event):
 
     func(bob, size)
 
-    skip(bob, size/2)
+    skip(bob, size / 2)
     bob.busy = False
 
 

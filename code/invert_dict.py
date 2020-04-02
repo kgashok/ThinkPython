@@ -7,6 +7,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 """
 
+
 def invert_dict(d):
     """Inverts a dictionary, returning a map from val to a list of keys.
 
@@ -28,4 +29,3 @@ if __name__ == '__main__':
     inverse = invert_dict(d)
     for val, keys in inverse.iteritems():
         print val, keys
-

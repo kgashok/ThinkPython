@@ -24,7 +24,7 @@ values 01, 010, 0100 and 01000.
 
 """
 
-print 01, 010, 0100, 01000
+print 0o1, 0o10, 0o100, 0o1000
 
 
 """
@@ -51,4 +51,3 @@ which is 1114.
 In Python 3, this "feature" has been removed.
 
 """
-

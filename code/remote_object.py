@@ -22,6 +22,7 @@ DEFAULT_NS_HOST = 'acl.olin.edu'
 class MyThread(threading.Thread):
     """MyThread is a wrapper for threading.Thread that improves
     the syntax for creating and starting threads."""
+
     def __init__(self, target, *args):
         threading.Thread.__init__(self, target=target, args=args)
         self.start()
@@ -40,7 +41,7 @@ class Watcher:
 
     I have only tested this on Linux.  I would expect it to
     work on OS X and not work on Windows."""
-    
+
     def __init__(self, callback=None):
         """ Creates a child thread, which returns.  The parent
         thread waits for a KeyboardInterrupt and then kills
@@ -50,7 +51,7 @@ class Watcher:
         if self.child == 0:
             return
         else:
-	    self.watch(callback)
+            self.watch(callback)
 
     def watch(self, callback=None):
         """Waits for a KeyboardInterrupt and then kills the child process."""
@@ -117,16 +118,16 @@ class NameServer:
     def create_group(self, name):
         """Creates a group with the given name."""
         self.ns.createGroup(name)
-    
+
     def delete_group(self, name):
         """Deletes a group with the given name."""
         self.ns.deleteGroup(name)
-    
+
     def get_remote_object_list(self, prefix='', group=None):
         """Returns a list of the remote objects in the given group
         that start with the given prefix."""
         t = self.ns.list(group)
-        u = [s for (s, n) in t if n==1 and s.startswith(prefix)]
+        u = [s for (s, n) in t if n == 1 and s.startswith(prefix)]
         return u
 
     def clear(self, prefix='', group=None):
@@ -135,13 +136,14 @@ class NameServer:
         t = self.ns.list(group)
 
         for (s, n) in t:
-            if not s.startswith(prefix): continue
-            if n==1:
+            if not s.startswith(prefix):
+                continue
+            if n == 1:
                 if group:
                     s = '%s.%s' % (group, s)
                 print 'Unregistering', s
-	        self.ns.unregister(s)
-    
+                self.ns.unregister(s)
+
 
 class RemoteObject(Pyro.core.ObjBase):
     """Extends Pyro.core.ObjBase and provides a higher level of abstraction.
@@ -158,15 +160,15 @@ class RemoteObject(Pyro.core.ObjBase):
         """
         Pyro.core.ObjBase.__init__(self)
 
-        if name == None:
+        if name is None:
             name = 'remote_object' + str(id(self))
-        self.name=name
-        
-        if ns == None:
+        self.name = name
+
+        if ns is None:
             ns = NameServer()
 
         self.connect(ns, name)
-        
+
     def connect(self, ns, name):
         """Connects to the given name server with the given name."""
 
@@ -189,19 +191,19 @@ class RemoteObject(Pyro.core.ObjBase):
         """Runs the request loop until an exception occurs."""
         try:
             self.pyro_daemon.requestLoop()
-        except:
+        except BaseException:
             self.cleanup()
-            if sys.exc_type != KeyboardInterrupt:
-                raise sys.exc_type, sys.exc_value
+            if sys.exc_info()[0] != KeyboardInterrupt:
+                raise sys.exc_info()[0], sys.exc_info()[1]
 
     def cleanup(self):
         """Removes this object from the name server."""
         print 'Shutting down remote object', self.name
         try:
             self.pyro_daemon.disconnect(self)
-        except:
+        except BaseException:
             print "Did not disconnect cleanly."
-            raise sys.exc_type, sys.exc_value
+            raise sys.exc_info()[0], sys.exc_info()[1]
         self.stopLoop()
         self.pyro_daemon.shutdown()
 
@@ -209,7 +211,7 @@ class RemoteObject(Pyro.core.ObjBase):
         """Runs the request loop in a separate thread."""
         self.thread = threading.Thread(target=self.stoppableLoop)
         self.thread.start()
-        
+
     def stoppableLoop(self):
         """Run handleRequests until another thread clears self.running."""
         self.running = True

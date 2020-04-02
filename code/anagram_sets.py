@@ -12,8 +12,7 @@ def signature(s):
     """Returns the signature of this string, which is a string
     that contains all of the letters in order.
     """
-    t = list(s)
-    t.sort()
+    t = sorted(s)
     t = ''.join(t)
     return t
 
@@ -88,4 +87,3 @@ if __name__ == '__main__':
 
     eight_letters = filter_length(d, 8)
     print_anagram_sets_in_order(eight_letters)
-    

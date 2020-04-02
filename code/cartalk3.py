@@ -8,6 +8,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
     http://www.cartalk.com/content/puzzler/transcripts/200813
 """
 
+
 def str_fill(i, len):
     """return the integer (i) written as a string with at least
     (len) digits"""
@@ -17,7 +18,7 @@ def str_fill(i, len):
 def are_reversed(i, j):
     """ return True if the integers i and j, written as strings,
     are the reverse of each other"""
-    return str_fill(i,2) == str_fill(j,2)[::-1]
+    return str_fill(i, 2) == str_fill(j, 2)[::-1]
 
 
 def num_instances(diff, flag=False):
@@ -28,7 +29,11 @@ def num_instances(diff, flag=False):
     count = 0
     while True:
         mother = daughter + diff
-        if are_reversed(daughter, mother) or are_reversed(daughter, mother+1):
+        if are_reversed(
+                daughter,
+                mother) or are_reversed(
+                daughter,
+                mother + 1):
             count = count + 1
             if flag:
                 print daughter, mother
@@ -36,7 +41,7 @@ def num_instances(diff, flag=False):
             break
         daughter = daughter + 1
     return count
-    
+
 
 def check_diffs():
     """enumerate the possible differences in age between mother
@@ -49,6 +54,7 @@ def check_diffs():
         if n > 0:
             print diff, n
         diff = diff + 1
+
 
 print 'diff  #instances'
 check_diffs()

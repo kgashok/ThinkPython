@@ -43,4 +43,3 @@ bob.delay = 0
 draw_spiral(bob, n=1000)
 
 wait_for_user()
-

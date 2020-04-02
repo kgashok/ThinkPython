@@ -8,11 +8,13 @@ Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
 
 """
 
+
 class Time(object):
     """Represents the time of day.
-       
+
     attributes: hour, minute, second
     """
+
     def __init__(self, hour=0, minute=0, second=0):
         minutes = hour * 60 + minute
         self.seconds = minutes * 60 + second
@@ -60,7 +62,7 @@ class Time(object):
 
     def is_valid(self):
         """Checks whether a Time object satisfies the invariants."""
-        return self.seconds >= 0 and self.seconds < 24*60*60
+        return self.seconds >= 0 and self.seconds < 24 * 60 * 60
 
 
 def int_to_time(seconds):

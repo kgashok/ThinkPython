@@ -8,11 +8,13 @@ Distributed under the GNU General Public License at gnu.org/licenses/gpl.html.
 
 """
 
+
 class Time(object):
     """Represents the time of day.
-       
+
     attributes: hour, minute, second
     """
+
 
 def print_time(t):
     print '%.2d:%.2d:%.2d' % (t.hour, t.minute, t.second)
@@ -75,6 +77,7 @@ def main():
     end_time = add_times(noon_time, run_time)
     print 'Ends at',
     print_time(end_time)
+
 
 if __name__ == '__main__':
     main()

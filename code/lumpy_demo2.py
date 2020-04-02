@@ -11,6 +11,7 @@ from lumpy_demo import *
 
 from swampy.Lumpy import Lumpy
 
+
 def countdown(n):
     if n <= 0:
         print 'Blastoff!'
@@ -18,10 +19,9 @@ def countdown(n):
         print_diagram(lumpy, 'lumpydemo2.eps')
     else:
         print n
-        countdown(n-1)
+        countdown(n - 1)
+
 
 lumpy = Lumpy()
 lumpy.make_reference()
 countdown(2)
-
-

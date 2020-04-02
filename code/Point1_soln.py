@@ -10,7 +10,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 import copy
 import math
 
-# to avoid duplicating code, I'm importing everything from Point1 
+# to avoid duplicating code, I'm importing everything from Point1
 from Point1 import *
 
 
@@ -57,7 +57,6 @@ def main():
     print 'distance',
     print distance_between_points(grosse, blank)
 
-
     box = Rectangle()
     box.width = 100.0
     box.height = 200.0
@@ -76,6 +75,6 @@ def main():
     print box.corner.x
     print box.corner.y
 
+
 if __name__ == '__main__':
     main()
-

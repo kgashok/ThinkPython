@@ -769,6 +769,7 @@ COLORS = """
 
 """
 
+
 def make_color_dict(colors=COLORS):
     """Returns a dictionary that maps color names to RGB strings.
 

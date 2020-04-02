@@ -44,18 +44,18 @@ class PokerHand(Hand):
         """
         self.suits = Hist()
         self.ranks = Hist()
-        
+
         for c in self.cards:
             self.suits.count(c.suit)
             self.ranks.count(c.rank)
 
         self.sets = self.ranks.values()
         self.sets.sort(reverse=True)
- 
+
     def has_highcard(self):
         """Returns True if this hand has a high card."""
         return len(self.cards)
-        
+
     def check_sets(self, *t):
         """Checks whether self.sets contains sets that are
         at least as big as the requirements in t.
@@ -63,21 +63,22 @@ class PokerHand(Hand):
         t: list of int
         """
         for need, have in zip(t, self.sets):
-            if need > have: return False
+            if need > have:
+                return False
         return True
 
     def has_pair(self):
         """Checks whether this hand has a pair."""
         return self.check_sets(2)
-        
+
     def has_twopair(self):
         """Checks whether this hand has two pair."""
         return self.check_sets(2, 2)
-        
+
     def has_threekind(self):
         """Checks whether this hand has three of a kind."""
         return self.check_sets(3)
-        
+
     def has_fourkind(self):
         """Checks whether this hand has four of a kind."""
         return self.check_sets(4)
@@ -91,7 +92,7 @@ class PokerHand(Hand):
         for val in self.suits.values():
             if val >= 5:
                 return True
-	return False
+        return False
 
     def has_straight(self):
         """Checks whether this hand has a straight."""
@@ -112,11 +113,12 @@ class PokerHand(Hand):
         for i in range(1, 15):
             if ranks.get(i, 0):
                 count += 1
-                if count == 5: return True
+                if count == 5:
+                    return True
             else:
                 count = 0
         return False
-    
+
     def has_straightflush(self):
         """Checks whether this hand has a straight flush.
 
@@ -136,11 +138,12 @@ class PokerHand(Hand):
             for rank in range(1, 15):
                 if (rank, suit) in s:
                     count += 1
-                    if count == 5: return True
+                    if count == 5:
+                        return True
                 else:
                     count = 0
         return False
-                
+
     def has_straightflush(self):
         """Checks whether this hand has a straight flush.
 
@@ -156,12 +159,11 @@ class PokerHand(Hand):
         # see if any of the partitioned hands has a straight
         for hand in d.values():
             if len(hand.cards) < 5:
-                continue            
+                continue
             hand.make_histograms()
             if hand.has_straight():
                 return True
         return False
-
 
     def classify(self):
         """Classifies this hand.
@@ -183,7 +185,7 @@ class PokerDeck(Deck):
 
     def deal_hands(deck, num_cards=5, num_hands=10):
         hands = []
-        for i in range(num_hands):        
+        for i in range(num_hands):
             hand = PokerHand()
             deck.move_cards(hand, num_cards)
             hand.classify()
@@ -198,9 +200,9 @@ def main(*args):
     # loop n times, dealing 7 hands per iteration, 7 cards each
     n = 10000
     for i in range(n):
-        if i%1000 == 0:
+        if i % 1000 == 0:
             print i
-            
+
         deck = PokerDeck()
         deck.shuffle()
 
@@ -208,19 +210,18 @@ def main(*args):
         for hand in hands:
             for label in hand.labels:
                 lhist.count(label)
-            
+
     # print the results
     total = 7.0 * n
     print total, 'hands dealt:'
 
     for label in PokerHand.all_labels:
         freq = lhist.get(label, 0)
-        if freq == 0: 
+        if freq == 0:
             continue
         p = total / freq
         print '%s happens one time in %.2f' % (label, p)
 
-        
+
 if __name__ == '__main__':
     main(*sys.argv)
-

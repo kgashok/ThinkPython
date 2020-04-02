@@ -9,10 +9,12 @@ Swampy; you can download it from thinkpython.com/swampy.
 
 """
 
-import os, sys
+import os
+import sys
 from swampy.Gui import *
 import Image as PIL      # to avoid name conflict with Tkinter
 import ImageTk
+
 
 def show_image(filename):
     # tkpi has to be global because otherwise it gets
@@ -23,7 +25,7 @@ def show_image(filename):
     tkpi = ImageTk.PhotoImage(image)
     g.la(image=tkpi)
 
+
 g = Gui()
 show_image('allen.png')
 g.mainloop()
-

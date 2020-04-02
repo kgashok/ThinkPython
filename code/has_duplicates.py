@@ -43,4 +43,3 @@ if __name__ == '__main__':
     print has_duplicates2(t)
     t.append(1)
     print has_duplicates2(t)
-

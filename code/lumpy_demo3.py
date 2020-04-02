@@ -20,4 +20,3 @@ empty = []
 
 lumpy.object_diagram()
 print_diagram(lumpy, 'lumpydemo3.eps')
-

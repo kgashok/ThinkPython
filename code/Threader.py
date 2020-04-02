@@ -24,7 +24,7 @@ class Threader(Turtle):
 
         See http://en.wikipedia.org/wiki/Stinking_badges
         """
-    
+
     def moveto(self, x, y):
         """Teleports to the given coordinates and redraws."""
         self.x = x
@@ -36,11 +36,11 @@ class Threader(Turtle):
 
         See http://en.wikipedia.org/wiki/Koch_snowflake
         """
-        if n<8:
+        if n < 8:
             self.fd(n)
             return
         for angle in [-60, 120, -60, 0]:
-            self.koch(n/3.0)
+            self.koch(n / 3.0)
             self.rt(angle)
 
     def snowflake(self):
@@ -66,4 +66,3 @@ world.setup_interactive()
 # add a button that calls make_threader
 world.bu(text='Make Threader', command=Callable(make_threader, world))
 world.mainloop()
-

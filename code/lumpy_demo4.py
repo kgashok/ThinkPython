@@ -7,7 +7,9 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 """
 
+from swampy.Lumpy import Lumpy
 from lumpy_demo import *
+
 
 def histogram(s):
     d = dict()
@@ -17,6 +19,7 @@ def histogram(s):
         else:
             d[c] += 1
     return d
+
 
 def invert_dict(d):
     inv = dict()
@@ -28,7 +31,6 @@ def invert_dict(d):
             inv[val].append(key)
     return inv
 
-from swampy.Lumpy import Lumpy
 
 lumpy = Lumpy()
 lumpy.make_reference()
@@ -38,4 +40,3 @@ inverse = invert_dict(hist)
 
 lumpy.object_diagram()
 print_diagram(lumpy, 'lumpydemo4.eps')
-

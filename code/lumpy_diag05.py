@@ -24,13 +24,13 @@ bob = Turtle()
 for i in range(3):
     x = i
 
+
 def function(parameter):
     local = parameter + 1
 
     # draw the state while function is running
     lumpy.object_diagram()
 
+
 variable = 3
-function(variable+1)
-
-
+function(variable + 1)

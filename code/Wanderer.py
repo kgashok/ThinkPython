@@ -43,7 +43,7 @@ class Wanderer(Turtle):
         self.clumsiness = clumsiness
 
         # Wanderers start out facing in a random direction
-        self.rt(randint(0,360))
+        self.rt(randint(0, 360))
 
     def distance(self):
         """Computes the distance from the Turtle to the origin."""
@@ -61,11 +61,11 @@ class Wanderer(Turtle):
 
         # call the function that keeps the Wanderers in bounds
         self.keep_in_bounds(dist)
-        
+
         # choose a random direction and turn
-        dir = randint(0,self.clumsiness) - randint(0,self.clumsiness)
+        dir = randint(0, self.clumsiness) - randint(0, self.clumsiness)
         self.rt(dir)
-        
+
         # move forward according to the speed attribute
         self.fd(self.speed)
 
@@ -74,7 +74,7 @@ class Wanderer(Turtle):
 
         # you should modify this method
         pass
-        
+
 
 # create a new TurtleWorld
 world = TurtleWorld()
@@ -83,9 +83,8 @@ world = TurtleWorld()
 world.setup_run()
 
 # make three Wanderers with different speed and clumsiness attributes
-for i in range(1,4):
-    Wanderer(i, i*45)
+for i in range(1, 4):
+    Wanderer(i, i * 45)
 
 # tell world to start processing events (button presses, etc)
 wait_for_user()
-

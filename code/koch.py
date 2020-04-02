@@ -17,10 +17,10 @@ except ImportError:
 
 def koch(t, n):
     """Draws a koch curve with length n."""
-    if n<3:
+    if n < 3:
         fd(t, n)
         return
-    m = n/3.0
+    m = n / 3.0
     koch(t, m)
     lt(t, 60)
     koch(t, m)

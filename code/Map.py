@@ -7,6 +7,7 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 """
 
+
 class LinearMap(object):
     """A simple implementation of a map using a list of tuples
     where each tuple is a key-value pair."""
